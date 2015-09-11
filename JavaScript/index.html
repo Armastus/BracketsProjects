@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Javascript</title>
+    <script src="practice.js"></script>
+    
+    <script>
+        //This is an Object.  Kinda like a class.
+        var user = {
+            //Variables
+            first_name: 'Joe',
+            last_name: 'Smith',
+            //function inside and Object is a Method
+            sayHello: function(){
+                console.log("Hello");
+            }
+        };
+        
+        console.log(user.first_name);
+        user.sayHello();
+        //Below it's like writing a variable and method(function) outside the main object.
+        user.email = "test@example.com";
+        user.sayBye = function() {
+            alert("Bye");
+        };
+        
+    </script>
+</head>
+    
+<body>
+    <h1>Hello</h1>
+</body>
+</html>
