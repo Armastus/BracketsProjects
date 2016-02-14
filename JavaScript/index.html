@@ -3,14 +3,15 @@
 <head>
     <title>Javascript</title>
     <script src="practice.js"></script>
-
+    <script type="text/javascript"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
     <script>
         //This is an Object.  Kinda like a class.
         var user = {
             //Variables
             first_name: 'Joe',
             last_name: 'Smith',
-            //function inside and Object is a Method
+            //function inside an Object is a Method
             sayHello: function(){
                 console.log("Hello");
             }
@@ -24,16 +25,111 @@
             alert("Bye");
         };
 
+        //prototypes: it's like a function but the name is Capital. EX
+        /*var User = function(first_name, last_name)*/
+
+        var User = function (first_name, last_name) {
+          this.f_name = first_name;
+          this.l_name = last_name;
+        }
+
+        var joe = new User('This is my first name, Joe', ' This is my last name, Smith');
+        console.log(joe.f_name);
+
         if (5 > 2) {
           alert("this is true");
         } else {
           alert("nope");
+        };
+
+        var x = 1;
+
+        while (x < 10) {
+        console.log(x);
+        x = x + 1;
+      };
+
+      var arr = [];
+      console.log(arr);
+
+      arr.push("David");
+      arr.push(3);
+      console.log(arr);
+
+      arr.pop(arr);
+      console.log(arr);
+
+      var arr = ["John", "Mary", "Jesus"];
+
+      for(var x = 0; x < arr.length; x++) {
+        console.log("Hi, I'm " + arr[0]);
+      };
+
+      //functions
+        var addSomething = function (a, b) {
+          return a + b;
         }
+        console.log(addSomething(2, 3));
 
     </script>
 </head>
 
+<style>
+  .red-text {
+    color: red;
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+    transition: 5s;
+  }
+  .border-red {
+    border: 1px solid red;
+  }
+</style>
 <body>
-    <h1>Hello</h1>
+    <h1 id='main-heading'>Hello</h1>
+    <h2>Header</h2>
+    <p class='para'>Paragraph here. </p>
+    <h2>Header</h2>
+    <p class = 'para'>blee bloop</p>
+    <h2>Header</h2>
+    <p class = 'para'> blah blah </p>
+    <script>
+    //DOMs
+    //in the console you can now just type "h" and it will output the id
+    var h1 = document.getElementById('main-heading');
+
+    var p2 = document.querySelector('p2');
+
+    var addRedClass = function() {
+      p2.className = p2.className + " red-text";
+    }
+    //we can also getElementsByClassName(); type "para" into the console and it
+    //it will giv eyou all the p with the class 'para'
+    var p = document.getElementsByClassName('para');
+
+    </script>
+    <script>
+    //jquery
+    //with jquery you can use selectors!
+    // var h2 = $('h2');
+    // var h1 = $('#main-heading');
+    // $('.para').first().css('border', '1px solid red');
+    //
+    // $('h1').click(function () {
+    //   $('h1').addClass('red-text');
+    // })
+//-----------------------------------------------------------------
+    //jquery this
+    //"this" will target the one that is clicked
+    $('.para').click(function() {
+      $(this).addClass('border-red');
+    });
+
+    //Ready, Set jquery
+    $(document).ready(function () {
+      $('h1').addClass('border-red');
+    });
+    </script>
 </body>
 </html>
